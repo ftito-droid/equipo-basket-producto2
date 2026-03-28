@@ -1,0 +1,73 @@
+export const PLAYERS = [
+  {
+    id: 1,
+    nombre: "Michael",
+    apellidos: "Jordan",
+    posicion: "Escolta",
+    edad: 63,
+    altura: 198,
+    video: "/assets/videos/jordan.mp4",
+    color1: '#000000ff',
+    color2: '#2a5298',
+    logo: "/assets/logos/bulls.png",
+    equipo: "Chicago Bulls",
+    foto: "/assets/images/jordan.png"
+  },
+  {
+    id: 2,
+    nombre: "Kobe",
+    apellidos: "Bryant",
+    posicion: "Escolta",
+    edad: 48,
+    altura: 198,
+    video: "/assets/videos/kobe.mp4",
+    color1: '#8c08a7ff',
+    color2: '#ecb92dff',
+    logo: "/assets/logos/lakers.png",
+    equipo: "Los Angeles Lakers",
+    foto: "/assets/images/kobe.png"
+  },
+  {
+    id: 3,
+    nombre: "LeBron",
+    apellidos: "James",
+    posicion: "Alero",
+    edad: 41,
+    altura: 206,
+    video: "/assets/videos/lebron.mp4",
+    color1: '#550505ff',
+    color2: '#032663ff',
+    logo: "/assets/logos/cavs.png",
+    equipo: "Cleveland Cavaliers / Miami Heat / Los Angeles Lakers",
+    foto: "/assets/images/lebron.png"
+  },
+  {
+    id: 4,
+    nombre: "Kareem",
+    apellidos: "Abdul-Jabbar",
+    posicion: "Pivot",
+    edad: 78,
+    altura: 216,
+    video: "/assets/videos/kareem.mp4",
+    color1: '#8c08a7ff',
+    color2: '#ecb92dff',
+    logo: "/assets/logos/lakers.png",
+    equipo: "Milwaukee Bucks / Los Angeles Lakers",
+    foto: "/assets/images/kareem.png"
+  },
+  {
+    id: 5,
+    nombre: "Magic",
+    apellidos: "Johnson",
+    posicion: "Base",
+    edad: 66,
+    altura: 203,
+    video: "/assets/videos/magic.mp4",
+    color1: '#8c08a7ff',
+    color2: '#ecb92dff',
+    logo: "/assets/logos/lakers.png",
+    equipo: "Los Angeles Lakers",
+    foto: "/assets/images/magic.png"
+  },
+
+];

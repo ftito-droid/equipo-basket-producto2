@@ -1,0 +1,67 @@
+<div class="filters-card custom-filters">
+
+  <!-- BUSCADOR POR NOMBRE -->
+  <div class="filter-group">
+    <label>Buscar por nombre</label>
+    <input
+      type="text"
+      class="filter-input"
+      placeholder="Ej: Juan, Carlos..."
+      [(ngModel)]="search">
+  </div>
+
+  <!-- FILTRO POR POSICIÓN -->
+  <div class="filter-group">
+    <label>Posición</label>
+    <select [(ngModel)]="positionFilter" class="filter-input">
+      <option value="">Todas las posiciones</option>
+      <option value="Base">Base</option>
+      <option value="Escolta">Escolta</option>
+      <option value="Alero">Alero</option>
+      <option value="Pivot">Pivot</option>
+    </select>
+  </div>
+
+  <!-- FILTRO POR EDAD -->
+  <div class="filter-group">
+    <label>Edad mínima</label>
+    <input
+      type="number"
+      class="filter-input"
+      placeholder="Ej: 20"
+      [(ngModel)]="ageFilter">
+  </div>
+
+  <!-- FILTRO POR EQUIPO -->
+  <div class="filter-group">
+    <label>Equipo</label>
+    <input
+      type="text"
+      class="filter-input"
+      placeholder="Ej: Lakers"
+      [(ngModel)]="teamFilter">
+  </div>
+
+</div>
+
+<!-- LISTADO DE JUGADORES -->
+<ul class="list-group players-list">
+  <li
+    *ngFor="let player of players | filterPlayers: search : positionFilter : ageFilter : teamFilter"
+    class="list-group-item list-group-item-action d-flex align-items-center player-item"
+    (click)="selectPlayer(player)"
+    style="cursor: pointer;"
+  >
+    <img
+      [src]="player.foto"
+      alt="foto"
+      class="rounded me-3 player-image"
+      width="50"
+      height="50"
+    >
+    <div class="player-text">
+      <div class="player-name">{{ player.nombre }} {{ player.apellidos }}</div>
+      <div class="player-position">{{ player.posicion }}</div>
+    </div>
+  </li>
+</ul>

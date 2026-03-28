@@ -1,0 +1,36 @@
+.player-video {
+  width: 250px;      
+  height: 385px;    
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  display: block;
+  margin-bottom: 0;
+  margin-top: auto;
+}
+
+/* Controles debajo del vídeo */
+.video-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  margin-left: 45px;
+}
+
+.video-controls button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #eef1f3;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.video-controls button:hover {
+  background: #125a9c;
+}

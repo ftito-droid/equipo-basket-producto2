@@ -1,0 +1,31 @@
+<header class="site-header text-center p-3">
+  <h1>The Breakpoints Basket Team</h1>
+</header>
+
+<div class="container-fluid">
+  <div class="row custom-grid-row">
+
+    <div class="col-12 col-md-4 col-lg-3 p-3">
+      <app-players (playerSelected)="onPlayerSelected($event)"></app-players>
+    </div>
+
+    <!-- Details (33.3% del ancho en lg) -->
+    <div class="col-12 col-md-4 col-lg-7 p-4">
+      <app-detail
+        [selectedPlayer]="selectedPlayer"
+        (clearSelection)="onClearSelection()">
+      </app-detail>
+
+    </div>
+
+    <!-- Media (Flotando sobre una parte de Details) -->
+    <div class="col-12 col-md-4 col-lg-2 p-4 media-floating">
+      <app-media [selectedPlayer]="selectedPlayer"></app-media>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer text-center p-3">
+  <p>Proyecto Angular - Producto 1</p>
+</footer>

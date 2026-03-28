@@ -1,0 +1,14 @@
+.player-video {
+  width: 250px;      /* tamaño fijo */
+  /*height: 400px;*/     /* altura fija */
+  height: 410px;    /* altura fija */
+  object-fit: cover; /* recorta si hace falta */
+  border-radius: 10px;
+  /*box-shadow: 0 3px 10px rgba(0,0,0,0.2);*/
+  box-shadow: none !important;      /* Quita el sombreado */
+  background: transparent !important; /* Quita cualquier fondo sólido */
+  border: none !important;           /* Quita bordes si los hubiera */
+  display: block;       /* 1. Elimina el espacio de línea de texto inferior */
+  margin-bottom: 0;     /* 2. Asegura que no haya margen abajo */
+  
+}

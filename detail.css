@@ -1,0 +1,76 @@
+:host {
+  display: block !important;
+  width: 100%; /* Deja que Bootstrap mande */
+}
+
+/* TARJETA DEL JUGADOR */
+.player-card {
+  background: #3b8ae4 !important;
+  padding: 20px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+
+  /* Aumentamos el espacio a la derecha para que el video de 250px quepa */
+  /* Si el video mide 250px, deja al menos 260px o 280px de aire */
+  padding-right: 300px !important; 
+  
+  position: relative; /* Asegura que la tarjeta sea la base del diseño */
+}
+
+/* CONTENIDO INTERNO */
+.player-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* COLUMNA IZQUIERDA */
+.player-left {
+  flex: 1;
+}
+
+.player-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.player-name {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+/* COLUMNA DERECHA (VIDEO) */
+.player-right {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.player-right video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .player-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .player-right {
+    max-width: 100%;
+  }
+}

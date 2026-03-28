@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  width: 100%;
+
+}
+
+/* BLOQUE COMPLETO DE FILTROS */
+.custom-filters {
+  background: #3b8ae4 !important;
+  padding: 20px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto 20px !important;
+
+  border: 2px solid #3b8ae4 !important;
+}
+
+
+/* GRUPOS DE FILTRO */
+.filter-group {
+  margin-bottom: 12px;
+}
+
+/* ETIQUETAS */
+.filter-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+/* INPUTS Y SELECTS */
+.filter-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  background: #f7f7f7;
+  font-size: 0.95rem;
+  color: #000;
+  transition: 0.25s;
+}
+
+.filter-input:focus {
+  border-color: var(--color1);
+  background: #fff;
+  box-shadow: 0 0 6px var(--color1);
+  outline: none;
+}
+.title-basket {
+  color: #0a1a3a !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+
+  background: #3b8ae4 !important;
+  padding: 10px 20px !important;
+  border-radius: 10px !important;
+
+  display: inline-block !important;
+  margin-bottom: 20px !important;
+}

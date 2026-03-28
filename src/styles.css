@@ -1,0 +1,123 @@
+/* =========================================================
+   🎨 PALETA GLOBAL — CAMBIA ESTOS VALORES PARA PERSONALIZAR TODO
+   ========================================================= */
+
+:root {
+  --color-fondo: #0d1117;            /* Fondo general */
+  --color-card: #3d4455;             /* Fondo de tarjetas */
+  --color-borde: #eceed5;            /* Bordes */
+  --color-texto: #ffffff;            /* Texto principal */
+  --color-texto-sec: #c7c7c7;        /* Texto secundario */
+  --color-primario: #ffffff;         /* Botones y enlaces */
+  --color-primario-hover: #2f3c4d;
+
+  /* 🎯 NUEVO: COLORES DEL RECUADRO DE JUGADORES */
+  --color-recuadro: #242830;         /* Fondo del recuadro */
+  --color-recuadro-borde: #3a3f47;   /* Borde del recuadro */
+
+  /* ✍️ NUEVO: TAMAÑOS DE FUENTE */
+  --fuente-general: 'Oswald', sans-serif;
+  --fuente-lista: 1.5rem;            /* Tamaño de los nombres */
+  --fuente-titulo: 1.8rem;           /* Títulos */
+  --fuente-buscador: 1.2rem;         /* Texto del buscador */
+  --fuente-card: 1.1rem;             /* Texto dentro de tarjetas */
+
+  --radio: 12px;                     /* Redondeo general */
+}
+
+/* =========================================================
+   🧱 ESTILOS GENERALES
+   ========================================================= */
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-general);
+  font-weight: bold; /* TODO EN NEGRITA */
+  margin: 50px;
+  padding: 1px;
+}
+
+/* =========================================================
+   📋 LISTA DE JUGADORES (RECUADRO QUE QUIERES CAMBIAR)
+   ========================================================= */
+
+.list-group-item {
+  background-color: var(--color-recuadro) !important;
+  border: 1px solid var(--color-recuadro-borde) !important;
+  color: var(--color-texto) !important;
+  font-size: var(--fuente-lista) !important;
+  border-radius: var(--radio) !important;
+  margin-bottom: 8px !important;
+  padding: 15px !important;
+}
+
+/* Enlaces dentro del recuadro */
+.list-group-item a {
+  color: var(--color-primario) !important;
+  text-decoration: none;
+}
+
+.list-group-item a:hover {
+  color: var(--color-primario-hover) !important;
+}
+
+/* =========================================================
+   🔍 BUSCADOR
+   ========================================================= */
+
+input.form-control-lg {
+  background-color: var(--color-card) !important;
+  border: 1px solid var(--color-borde) !important;
+  color: var(--color-texto) !important;
+  border-radius: var(--radio) !important;
+  font-size: var(--fuente-buscador) !important;
+}
+
+input.form-control-lg::placeholder {
+  color: var(--color-texto-sec) !important;
+}
+
+/* =========================================================
+   🃏 TARJETAS
+   ========================================================= */
+
+.card {
+  background-color: var(--color-card) !important;
+  border: 1px solid var(--color-borde) !important;
+  border-radius: var(--radio) !important;
+  color: var(--color-texto) !important;
+  font-size: var(--fuente-card) !important;
+}
+
+.card-title {
+  font-size: var(--fuente-titulo) !important;
+  text-align: center !important;
+}
+
+/* =========================================================
+   🧭 NAVBAR
+   ========================================================= */
+
+.navbar {
+  background-color: var(--color-card) !important;
+  border: 1px solid var(--color-borde) !important;
+  border-radius: var(--radio) !important;
+}
+
+.navbar-brand {
+  color: var(--color-texto) !important;
+  text-align: center !important;
+  width: 100% !important;
+  font-size: var(--fuente-titulo) !important;
+}
+
+/* =========================================================
+   🎥 MEDIA (IFRAME)
+   ========================================================= */
+
+.media-container iframe {
+  border-radius: var(--radio) !important;
+  border: 1px solid var(--color-borde) !important;
+  max-width: 100% !important;
+}
