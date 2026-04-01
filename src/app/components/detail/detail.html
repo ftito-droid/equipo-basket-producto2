@@ -42,9 +42,9 @@
         <input type="file" accept="video/*">
 
         <div class="form-buttons">
-          <button class="edit-btn">✏️ Editar</button>
-          <button class="save-btn">💾 Guardar</button>
-          <button class="cancel-btn">↩ Cancelar</button>
+         <button class="edit-btn" (click)="onEdit()">✏️ Editar</button>
+         <button class="save-btn" (click)="onSave()">💾 Guardar</button>
+         <button class="cancel-btn" (click)="onCancel()">↩ Cancelar</button>
         </div>
       </div>
     </div>

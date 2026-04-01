@@ -22,4 +22,16 @@ export class DetailComponent implements OnChanges {
   onClearSelection(): void {
     this.clearSelection.emit();
   }
+
+  onEdit(): void {
+    console.log('Editar pulsado');
+  }
+
+  onSave(): void {
+    console.log('Guardar pulsado');
+  }
+
+  onCancel(): void {
+    console.log('Cancelar pulsado');
+  }
 }
