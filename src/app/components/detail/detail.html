@@ -11,10 +11,42 @@
       <p><strong>Edad:</strong> {{ selectedPlayer.edad }}</p>
       <p><strong>Altura:</strong> {{ selectedPlayer.altura }} cm</p>
       <p><strong>Equipo:</strong> {{ selectedPlayer.equipo }}</p>
+      
       <button class="close-btn" (click)="onClearSelection()">
-  ❌ Cerrar
-</button>
+        ❌ Cerrar
+      </button>
 
+      <div class="edit-form">
+        <label>Nombre</label>
+        <input type="text" [value]="selectedPlayer.nombre">
+
+        <label>Apellidos</label>
+        <input type="text" [value]="selectedPlayer.apellidos">
+
+        <label>Posición</label>
+        <input type="text" [value]="selectedPlayer.posicion">
+
+        <label>Edad</label>
+        <input type="number" [value]="selectedPlayer.edad">
+
+        <label>Altura</label>
+        <input type="number" [value]="selectedPlayer.altura">
+
+        <label>Equipo</label>
+        <input type="text" [value]="selectedPlayer.equipo">
+
+        <label>Imagen</label>
+        <input type="file" accept="image/*">
+
+        <label>Vídeo</label>
+        <input type="file" accept="video/*">
+
+        <div class="form-buttons">
+          <button class="edit-btn">✏️ Editar</button>
+          <button class="save-btn">💾 Guardar</button>
+          <button class="cancel-btn">↩ Cancelar</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
