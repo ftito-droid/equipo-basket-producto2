@@ -12,6 +12,8 @@ export class DetailComponent implements OnChanges {
   @Input() selectedPlayer: any = null;
   @Output() clearSelection = new EventEmitter<void>();
 
+  editando: boolean = false;
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedPlayer'] && this.selectedPlayer) {
       document.documentElement.style.setProperty('--color1', this.selectedPlayer.color1);
@@ -24,14 +26,17 @@ export class DetailComponent implements OnChanges {
   }
 
   onEdit(): void {
-    console.log('Editar pulsado');
+  this.editando = true;
+  alert('Modo edición activado');
   }
 
   onSave(): void {
-    console.log('Guardar pulsado');
+  this.editando = false;
+  alert('Cambios guardados');
   }
 
   onCancel(): void {
-    console.log('Cancelar pulsado');
+  this.editando = false;
+  alert('Edición cancelada');
   }
 }

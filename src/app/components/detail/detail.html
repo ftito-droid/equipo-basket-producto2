@@ -18,28 +18,28 @@
 
       <div class="edit-form">
         <label>Nombre</label>
-        <input type="text" [value]="selectedPlayer.nombre">
+        <input type="text" [value]="selectedPlayer.nombre" [disabled]="!editando">
 
         <label>Apellidos</label>
-        <input type="text" [value]="selectedPlayer.apellidos">
+        <input type="text" [value]="selectedPlayer.apellidos" [disabled]="!editando">
 
         <label>Posición</label>
-        <input type="text" [value]="selectedPlayer.posicion">
+        <input type="text" [value]="selectedPlayer.posicion" [disabled]="!editando">
 
         <label>Edad</label>
-        <input type="number" [value]="selectedPlayer.edad">
+        <input type="number" [value]="selectedPlayer.edad" [disabled]="!editando">
 
         <label>Altura</label>
-        <input type="number" [value]="selectedPlayer.altura">
+        <input type="number" [value]="selectedPlayer.altura" [disabled]="!editando">
 
         <label>Equipo</label>
-        <input type="text" [value]="selectedPlayer.equipo">
+        <input type="text" [value]="selectedPlayer.equipo" [disabled]="!editando">
 
         <label>Imagen</label>
-        <input type="file" accept="image/*">
+        <input type="file" accept="image/*" [disabled]="!editando">
 
         <label>Vídeo</label>
-        <input type="file" accept="video/*">
+        <input type="file" accept="video/*" [disabled]="!editando">
 
         <div class="form-buttons">
          <button class="edit-btn" (click)="onEdit()">✏️ Editar</button>
