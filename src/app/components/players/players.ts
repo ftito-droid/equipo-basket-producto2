@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PLAYERS } from '../../data/players';
 import { FilterPlayersPipe } from '../../pipes/filterPlayers.pipe';
+import { PlayersService } from '../../services/players.service';
 
 @Component({
   selector: 'app-players',
@@ -11,8 +11,9 @@ import { FilterPlayersPipe } from '../../pipes/filterPlayers.pipe';
   templateUrl: './players.html',
   styleUrls: ['./players.css']
 })
-export class PlayersComponent {
-  players = PLAYERS;
+export class PlayersComponent implements OnInit {
+
+  players: any[] = [];
 
   search = '';
   positionFilter = '';
@@ -20,6 +21,12 @@ export class PlayersComponent {
   teamFilter = '';
 
   @Output() playerSelected = new EventEmitter<any>();
+
+  constructor(private playersService: PlayersService) {}
+
+  async ngOnInit() {
+    this.players = await this.playersService.getPlayers();
+  }
 
   selectPlayer(player: any) {
     this.playerSelected.emit(player);
