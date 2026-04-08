@@ -6,15 +6,8 @@ import { routes } from './app.routes';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
-// 🔥 tu config (la da Firebase)
-const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_PROJECT.firebaseapp.com",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_PROJECT.appspot.com",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
-};
+// ✅ Importamos la configuración que ya tienes en firebase.config.ts
+import { firebaseConfig } from './firebase.config'; 
 
 export const appConfig: ApplicationConfig = {
   providers: [
