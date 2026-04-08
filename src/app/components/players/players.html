@@ -45,7 +45,7 @@
 </div>
 
 <!-- 1. Envolvemos todo en un ng-container que espera los datos de Firebase -->
-<ng-container *ngIf="players$ | async as listPlayers; else loading">
+<ng-container *ngIf="(players$ | async) || [] as listPlayers; else loading"> 
 
   <!-- LISTADO DE JUGADORES -->
   <ul class="list-group players-list">
