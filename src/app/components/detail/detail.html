@@ -3,18 +3,61 @@
     <div class="player-left">
       <img [src]="selectedPlayer.foto" alt="foto" class="player-photo">
 
+
       <h2 class="player-name">
         {{ selectedPlayer.nombre }} {{ selectedPlayer.apellidos }}
       </h2>
+
 
       <p><strong>Posición:</strong> {{ selectedPlayer.posicion }}</p>
       <p><strong>Edad:</strong> {{ selectedPlayer.edad }}</p>
       <p><strong>Altura:</strong> {{ selectedPlayer.altura }} cm</p>
       <p><strong>Equipo:</strong> {{ selectedPlayer.equipo }}</p>
+     
       <button class="close-btn" (click)="onClearSelection()">
-  ❌ Cerrar
-</button>
+        ❌ Cerrar
+      </button>
 
+
+      <div class="edit-form">
+        <label>Nombre</label>
+        <input type="text" [value]="selectedPlayer.nombre" [disabled]="!editando">
+
+
+        <label>Apellidos</label>
+        <input type="text" [value]="selectedPlayer.apellidos" [disabled]="!editando">
+
+
+        <label>Posición</label>
+        <input type="text" [value]="selectedPlayer.posicion" [disabled]="!editando">
+
+
+        <label>Edad</label>
+        <input type="number" [value]="selectedPlayer.edad" [disabled]="!editando">
+
+
+        <label>Altura</label>
+        <input type="number" [value]="selectedPlayer.altura" [disabled]="!editando">
+
+
+        <label>Equipo</label>
+        <input type="text" [value]="selectedPlayer.equipo" [disabled]="!editando">
+
+
+        <label>Imagen</label>
+        <input type="file" accept="image/*" [disabled]="!editando">
+
+
+        <label>Vídeo</label>
+        <input type="file" accept="video/*" [disabled]="!editando">
+
+
+        <div class="form-buttons">
+         <button class="edit-btn" (click)="onEdit()">✏️ Editar</button>
+         <button class="save-btn" (click)="onSave()">💾 Guardar</button>
+         <button class="cancel-btn" (click)="onCancel()">↩ Cancelar</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
