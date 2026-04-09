@@ -44,24 +44,45 @@
 
 </div>
 
-<!-- LISTADO DE JUGADORES -->
-<ul class="list-group players-list">
-  <li
-    *ngFor="let player of players | filterPlayers: search : positionFilter : ageFilter : teamFilter"
-    class="list-group-item list-group-item-action d-flex align-items-center player-item"
-    (click)="selectPlayer(player)"
-    style="cursor: pointer;"
-  >
-    <img
-      [src]="player.foto"
-      alt="foto"
-      class="rounded me-3 player-image"
-      width="50"
-      height="50"
+<!-- 1. Envolvemos todo en un ng-container que espera los datos de Firebase -->
+<ng-container *ngIf="(players$ | async) || [] as listPlayers; else loading"> 
+
+  <!-- LISTADO DE JUGADORES -->
+  <ul class="list-group players-list">
+    <!-- 2. Ahora usamos 'listPlayers' que ya está garantizado que no es null -->
+    <li
+      *ngFor="let player of listPlayers | filterPlayers: search : positionFilter : ageFilter : teamFilter"
+      class="list-group-item list-group-item-action d-flex align-items-center player-item"
+      style="cursor: pointer;"
     >
-    <div class="player-text">
-      <div class="player-name">{{ player.nombre }} {{ player.apellidos }}</div>
-      <div class="player-position">{{ player.posicion }}</div>
-    </div>
-  </li>
-</ul>
+      <div class="d-flex align-items-center flex-grow-1" (click)="selectPlayer(player)">
+        <img
+          [src]="player.foto"
+          alt="foto"
+          class="rounded me-3 player-image"
+          width="50"
+          height="50"
+        >
+       <div class="player-text">
+        <div class="player-name">{{ player.nombre }} {{ player.apellidos }}</div>
+        <div class="player-position">{{ player.posicion }}</div>
+       </div>
+      </div>
+      <!-- Botón para Borrar -->
+      <button 
+        class="btn btn-danger btn-sm" 
+        (click)="deletePlayer(player.id); $event.stopPropagation()">
+        ❌ Borrar
+      </button>
+    </li>
+  </ul>
+
+</ng-container>
+
+<!-- 3. Mensaje que se muestra mientras Firebase carga los datos -->
+<ng-template #loading>
+  <div class="text-center p-5">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2">Cargando jugadores desde Firebase...</p>
+  </div>
+</ng-template>
