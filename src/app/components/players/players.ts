@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FilterPlayersPipe } from '../../pipes/filterPlayers.pipe';
@@ -13,9 +13,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./players.css']
 })
 export class PlayersComponent implements OnInit{
-  
+  private playersService = inject(PlayersService);
+
+  // 2. Inicialización directa del Observable
+  players$: Observable<any[]> = this.playersService.getPlayers();
    // Ahora usamos un Observable para los datos en tiempo real
-  players$!: Observable<any[]>;
+  //players$!: Observable<any[]>;
 
   search = '';
   positionFilter = '';
@@ -25,11 +28,12 @@ export class PlayersComponent implements OnInit{
   @Output() playerSelected = new EventEmitter<any>();
 
    // Inyectamos el servicio en el constructor
-  constructor(private playersService: PlayersService) {}
+  //constructor(private playersService: PlayersService) {}
+  constructor() {}
 
   ngOnInit() {
     // Cargamos los jugadores desde Firebase al arrancar (forma dinamica de acceso)
-    this.players$ = this.playersService.getPlayers();
+    //this.players$ = this.playersService.getPlayers();
     // Añade esto para espiar qué llega de Firebase:
     this.players$.subscribe(data => console.log('Datos de Firebase:', data));
   }
