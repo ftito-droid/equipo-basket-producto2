@@ -3,6 +3,7 @@
   width: 100%; /* Deja que Bootstrap mande */
 }
 
+
 /* TARJETA DEL JUGADOR */
 .player-card {
   background: #3b8ae4 !important;
@@ -10,16 +11,19 @@
   border-radius: 12px !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
 
+
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto !important;
 
+
   /* Aumentamos el espacio a la derecha para que el video de 250px quepa */
   /* Si el video mide 250px, deja al menos 260px o 280px de aire */
-  padding-right: 300px !important; 
-  
+  padding-right: 300px !important;
+ 
   position: relative; /* Asegura que la tarjeta sea la base del diseño */
 }
+
 
 /* CONTENIDO INTERNO */
 .player-content {
@@ -28,10 +32,12 @@
   align-items: flex-start;
 }
 
+
 /* COLUMNA IZQUIERDA */
 .player-left {
   flex: 1;
 }
+
 
 .player-photo {
   width: 150px;
@@ -42,11 +48,13 @@
   margin-bottom: 10px;
 }
 
+
 .player-name {
   margin-top: 10px;
   margin-bottom: 15px;
   font-size: 1.6rem;
 }
+
 
 /* COLUMNA DERECHA (VIDEO) */
 .player-right {
@@ -57,11 +65,13 @@
   align-items: flex-start;
 }
 
+
 .player-right video {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -69,6 +79,7 @@
     flex-direction: column;
     align-items: center;
   }
+
 
   .player-right {
     max-width: 100%;
@@ -91,12 +102,81 @@
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
+
 .close-btn:hover {
   background: #d93636;
   transform: translateY(-2px);
   box-shadow: 0 5px 12px rgba(0,0,0,0.25);
 }
 
+
 .close-btn:active {
   transform: scale(0.95);
+}
+
+
+.edit-form {
+  margin-top: 20px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+
+.edit-form label {
+  display: block;
+  font-weight: 700;
+  margin-top: 8px;
+  color: white;
+}
+
+
+.edit-form input[type="text"],
+.edit-form input[type="number"],
+.edit-form input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.edit-btn {
+  background: #f0ad4e;
+}
+
+
+.save-btn {
+  background: #28a745;
+  color: white;
+}
+
+
+.cancel-btn {
+  background: #6c757d;
+  color: white;
 }
