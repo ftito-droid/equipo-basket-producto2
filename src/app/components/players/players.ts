@@ -26,6 +26,24 @@ export class PlayersComponent implements OnInit{
   teamFilter = '';
   showNewPlayerForm = false; // Controla si se muestra el formulario para añadir un nuevo jugador
 
+  // Datos del nuevo jugador que se añadirán a Firebase
+  newPlayer = {
+    nombre: '',
+    apellidos: '',
+    posicion: '',
+    edad: null,
+    altura: '',
+    equipo: '',
+    foto: '',
+    video: '',
+    color1: '',
+    color2: '',
+    logo: ''
+  };
+
+  successMessage = '';
+  errorMessage = '';
+
   @Output() playerSelected = new EventEmitter<any>();
 
    // Inyectamos el servicio en el constructor
@@ -57,9 +75,71 @@ export class PlayersComponent implements OnInit{
     }
   }
 
-  // Método para mostrar u ocultar el formulario de nuevo jugador
-  toggleNewPlayerForm() {
-    this.showNewPlayerForm = !this.showNewPlayerForm;
+// Método para mostrar el formulario de nuevo jugador
+  openNewPlayerForm() {
+    this.showNewPlayerForm = true;
+  }
+
+// Método para ocultar el formulario de nuevo jugador
+  closeNewPlayerForm() {
+    this.showNewPlayerForm = false;
+  }
+
+
+  // Método para guardar un nuevo jugador en Firebase
+ async saveNewPlayer() {
+  this.errorMessage = '';
+
+  if (!this.newPlayer.nombre.trim() || !this.newPlayer.apellidos.trim() || !this.newPlayer.posicion.trim()) {
+    this.errorMessage = 'Debes completar los campos obligatorios: nombre, apellidos y posición.';
+    return;
+  }
+
+  const playerToSave = { ...this.newPlayer };
+
+  this.newPlayer = {
+    nombre: '',
+    apellidos: '',
+    posicion: '',
+    edad: null,
+    altura: '',
+    equipo: '',
+    foto: '',
+    video: '',
+    color1: '',
+    color2: '',
+    logo: ''
+  };
+
+  this.showNewPlayerForm = false;
+
+  try {
+    await this.playersService.addPlayer(playerToSave);
+    alert('Jugador añadido correctamente');
+  } catch (error) {
+    alert('Error al añadir jugador');
+    console.error(error);
+  }
+}
+
+  // Método para seleccionar la foto y guardar su ruta
+  onPhotoSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.newPlayer.foto = `assets/images/${file.name}`;
+    }
+  }
+
+  // Método para seleccionar el vídeo y guardar su ruta
+  onVideoSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.newPlayer.video = `assets/videos/${file.name}`;
+    }
   }
 
 }

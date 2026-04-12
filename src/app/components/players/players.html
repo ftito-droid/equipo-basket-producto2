@@ -44,14 +44,111 @@
 
 </div>
 
+<!-- Boton del nuevo jugador-->
 <div class="mb-3">
-  <button class="btn btn-success" (click)="toggleNewPlayerForm()">
+  <button class="btn btn-success" (click)="openNewPlayerForm()">
     + Nuevo jugador
   </button>
 </div>
+
+<div *ngIf="successMessage" class="alert alert-success mb-3">
+  {{ successMessage }}
+</div>
+
+<!-- Forma del nuevo jugador-->
 <div *ngIf="showNewPlayerForm" class="card p-3 mb-3">
-  <h5>Nuevo jugador</h5>
-  <p>Aquí irá el formulario.</p>
+  <h5 class="mb-3">Nuevo jugador</h5>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input type="text" class="form-control" [(ngModel)]="newPlayer.nombre">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Apellidos</label>
+    <input type="text" class="form-control" [(ngModel)]="newPlayer.apellidos">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Posición</label>
+    <select class="form-control" [(ngModel)]="newPlayer.posicion">
+      <option value="">Selecciona una posición</option>
+      <option value="Base">Base</option>
+      <option value="Escolta">Escolta</option>
+      <option value="Alero">Alero</option>
+      <option value="Pivot">Pivot</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Edad</label>
+    <input type="number" class="form-control" [(ngModel)]="newPlayer.edad">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Altura</label>
+    <input type="text" class="form-control" [(ngModel)]="newPlayer.altura">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Equipo</label>
+    <input type="text" class="form-control" [(ngModel)]="newPlayer.equipo">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Foto</label>
+    <input
+      type="file"
+      class="form-control"
+      accept="image/*"
+      (change)="onPhotoSelected($event)"
+    >
+    <small class="text-muted" *ngIf="newPlayer.foto">
+      Ruta: {{ newPlayer.foto }}
+    </small>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Vídeo</label>
+    <input
+      type="file"
+      class="form-control"
+      accept="video/*"
+      (change)="onVideoSelected($event)"
+    >
+    <small class="text-muted" *ngIf="newPlayer.video">
+      Ruta: {{ newPlayer.video }}
+    </small>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Color 1</label>
+    <input type="text" class="form-control" [(ngModel)]="newPlayer.color1">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Color 2</label>
+    <input type="text" class="form-control" [(ngModel)]="newPlayer.color2">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Logo</label>
+    <input type="text" class="form-control" [(ngModel)]="newPlayer.logo">
+  </div>
+
+  <div class="d-flex gap-2">
+    <button type="button" class="btn btn-primary" (click)="saveNewPlayer()">
+      Guardar jugador
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="closeNewPlayerForm()">
+      Cancelar
+    </button>
+  </div>
+
 </div>
 
 <!-- 1. Envolvemos todo en un ng-container que espera los datos de Firebase -->

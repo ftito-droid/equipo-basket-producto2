@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, deleteDoc, doc, onSnapshot, updateDoc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, deleteDoc, doc, onSnapshot, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -37,5 +37,9 @@ export class PlayersService {
   return await updateDoc(playerDoc, data);
   }
 
-  
+    // Método para añadir un nuevo jugador a Firebase
+  async addPlayer(data: any) {
+    const playersCollection = collection(this.firestore, 'players');
+    return await addDoc(playersCollection, data);
+  }
 }
