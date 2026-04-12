@@ -1,0 +1,45 @@
+import { Injectable, inject } from '@angular/core';
+import { Firestore, addDoc, collection, deleteDoc, doc, onSnapshot, updateDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PlayersService {
+  // ✅ El inject() aquí arriba asegura el contexto de Angular
+  private firestore = inject(Firestore);
+
+   getPlayers(): Observable<any[]> {
+    return new Observable(subscriber => {
+      const colRef = collection(this.firestore, 'players');
+      
+      // Usamos onSnapshot de Firebase directamente. 
+      // Esto SALTA la validación de _Query que está fallando.
+      const unsubscribe = onSnapshot(colRef, (snapshot) => {
+        const players = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        subscriber.next(players);
+      }, (error) => {
+        subscriber.error(error);
+      });
+
+      return () => unsubscribe();
+    });
+  }
+  async deletePlayer(id: string) {
+    const playerDoc = doc(this.firestore, `players/${id}`);
+    return await deleteDoc(playerDoc);
+  }
+  async updatePlayer(id: string, data: any) {
+  const playerDoc = doc(this.firestore, `players/${id}`);
+  return await updateDoc(playerDoc, data);
+  }
+
+    // Método para añadir un nuevo jugador a Firebase
+  async addPlayer(data: any) {
+    const playersCollection = collection(this.firestore, 'players');
+    return await addDoc(playersCollection, data);
+  }
+}
