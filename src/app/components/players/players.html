@@ -44,6 +44,16 @@
 
 </div>
 
+<div class="mb-3">
+  <button class="btn btn-success" (click)="toggleNewPlayerForm()">
+    + Nuevo jugador
+  </button>
+</div>
+<div *ngIf="showNewPlayerForm" class="card p-3 mb-3">
+  <h5>Nuevo jugador</h5>
+  <p>Aquí irá el formulario.</p>
+</div>
+
 <!-- 1. Envolvemos todo en un ng-container que espera los datos de Firebase -->
 <ng-container *ngIf="(players$ | async) || [] as listPlayers; else loading"> 
 

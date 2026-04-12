@@ -24,6 +24,7 @@ export class PlayersComponent implements OnInit{
   positionFilter = '';
   ageFilter: number | null = null;
   teamFilter = '';
+  showNewPlayerForm = false; // Controla si se muestra el formulario para añadir un nuevo jugador
 
   @Output() playerSelected = new EventEmitter<any>();
 
@@ -55,4 +56,10 @@ export class PlayersComponent implements OnInit{
       }
     }
   }
+
+  // Método para mostrar u ocultar el formulario de nuevo jugador
+  toggleNewPlayerForm() {
+    this.showNewPlayerForm = !this.showNewPlayerForm;
+  }
+
 }
