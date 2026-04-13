@@ -1,8 +1,7 @@
 {
-  "name": "Angular 21",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "22"
-    }
+  "view": "browser",
+  "template": "node",
+  "container": {
+    "node": "22"
   }
 }
