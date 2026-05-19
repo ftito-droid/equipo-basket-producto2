@@ -39,7 +39,7 @@ export class DetailComponent implements OnChanges {
   onEdit(): void {
   this.editando = true;
   this.playerEditado = { ...this.selectedPlayer };
-  alert('Modo edición activado');
+  //alert('Modo edición activado');
 }
 
   async onSave(): Promise<void> {
@@ -54,10 +54,10 @@ export class DetailComponent implements OnChanges {
     });
 
     this.editando = false;
-    alert('Cambios guardados');
+    //alert('Cambios guardados');
   } catch (error) {
     console.error('Error al guardar:', error);
-    alert('Error al guardar los cambios');
+    //alert('Error al guardar los cambios');
   }
 }
 
@@ -65,6 +65,6 @@ export class DetailComponent implements OnChanges {
   onCancel(): void {
   this.editando = false;
   this.playerEditado = { ...this.selectedPlayer };
-  alert('Edición cancelada');
+  //alert('Edición cancelada');
   }
 }

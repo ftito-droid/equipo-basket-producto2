@@ -115,9 +115,9 @@ export class PlayersComponent implements OnInit{
 
   try {
     await this.playersService.addPlayer(playerToSave);
-    alert('Jugador añadido correctamente');
+    //alert('Jugador añadido correctamente');
   } catch (error) {
-    alert('Error al añadir jugador');
+    //alert('Error al añadir jugador');
     console.error(error);
   }
 }

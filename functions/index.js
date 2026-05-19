@@ -1,5 +1,5 @@
 const { setGlobalOptions } = require("firebase-functions");
-const { onDocumentWritten, onDocumentUpdated } = require("firebase-functions/v2/firestore");
+const { onDocumentCreated, onDocumentUpdated } = require("firebase-functions/v2/firestore");
 const admin = require("firebase-admin");
 const logger = require("firebase-functions/logger");
 
@@ -7,7 +7,7 @@ setGlobalOptions({ maxInstances: 10 });
 
 admin.initializeApp();
 
-exports.notifyPlayerWritten = onDocumentWritten("players/{playerId}", async (event) => {
+exports.notifyPlayerCreated = onDocumentCreated("players/{playerId}", async (event) => {
   logger.info("Cambio detectado en players");
 
   const tokensSnapshot = await admin.firestore().collection("tokens").get();
@@ -17,14 +17,17 @@ exports.notifyPlayerWritten = onDocumentWritten("players/{playerId}", async (eve
     return;
   }
 
-  const tokens = [];
+const tokensSet = new Set();
 
-  tokensSnapshot.forEach((doc) => {
-    const data = doc.data();
-    if (data.token) {
-      tokens.push(data.token);
-    }
-  });
+tokensSnapshot.forEach((doc) => {
+  const data = doc.data();
+
+  if (data.token) {
+    tokensSet.add(data.token);
+  }
+});
+
+const tokens = Array.from(tokensSet);
 
   if (tokens.length === 0) {
     logger.info("No hay tokens válidos");
@@ -56,14 +59,17 @@ exports.notifyPlayerUpdated = onDocumentUpdated("players/{playerId}", async (eve
 
   const tokensSnapshot = await admin.firestore().collection("tokens").get();
 
-  const tokens = [];
+const tokensSet = new Set();
 
-  tokensSnapshot.forEach((doc) => {
-    const data = doc.data();
-    if (data.token) {
-      tokens.push(data.token);
-    }
-  });
+tokensSnapshot.forEach((doc) => {
+  const data = doc.data();
+
+  if (data.token) {
+    tokensSet.add(data.token);
+  }
+});
+
+const tokens = Array.from(tokensSet);
 
   if (tokens.length === 0) {
     logger.info("No hay tokens válidos");

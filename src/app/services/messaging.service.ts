@@ -36,10 +36,12 @@ export class MessagingService {
     }
   }
 
-  listenMessages() {
+listenMessages() {
     onMessage(this.messaging, (payload) => {
-      console.log('Mensaje recibido en foreground:', payload);
-      console.log(payload.notification);
-    });
-  }
+        console.log('Mensaje recibido en foreground:', payload);
+        new Notification(payload.notification?.title || 'Equipo Basket', {
+            body: payload.notification?.body || 'Nueva notificación'
+        });
+        });
+    }
 }
